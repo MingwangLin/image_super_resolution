@@ -1,11 +1,9 @@
 import importlib
-import utils2
+
+from app.api import utils2
+
 importlib.reload(utils2)
-from utils2 import *
-from scipy.optimize import fmin_l_bfgs_b
-from scipy.misc import imsave
-from keras import metrics
-from vgg16_avg import VGG16_Avg
+from app.api.utils2 import *
 from bcolz_array_iterator import BcolzArrayIterator
 
 path = '/media/lin/4C3F9729770D0D36/imagenet/'

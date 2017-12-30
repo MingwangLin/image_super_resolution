@@ -1,0 +1,21 @@
+{% macro turn_page(pgdown_id) %}
+<ul class="pager">
+    <!-- <li><button type="button" class="btn btn-default pull-left"
+                id="{{pgup_id}}"
+                data-name="{{username}}">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
+            </span>
+            上一页
+        </button>
+    </li> -->
+    <li>
+        <button type="button" class="btn btn-default pull-right"
+                id="{{pgdown_id}}"
+        >
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+          </span>
+            下一页
+        </button>
+    </li>
+</ul>
+{%- endmacro %}

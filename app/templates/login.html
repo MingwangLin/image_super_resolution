@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link href="/static/css/login.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/position.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/background.css" rel="stylesheet">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/login.js"></script>
+</head>
+<body>
+<div class="gua-container">
+    <div class="gua-main">
+        <div class="gua-header">
+            <h1 class="gua-title">微博</h1>
+        </div>
+        <div class="gua-form transbox">
+            <div class="gua-tab">
+                <a id="id-a-signup" href="#">注册</a>
+                <a id="id-a-login" href="#">登录</a>
+            </div>
+            <div id="id-div-signup">
+                <div class="gua-form-textinput">
+                    <div class="gua-input-wrapper">
+                        <input id="id-input-username" type="text" placeholder="用户名" required/>
+                    </div>
+                    <div class="gua-input-wrapper">
+                        <input id="id-input-password" type="text" placeholder="密码" required/>
+                    </div>
+                </div>
+                <button id="id-button-register" class="gua-button-big">注册</button>
+            </div>
+            <div id="id-div-login">
+                <div class="gua-form-textinput">
+                    <div class="gua-input-wrapper">
+                        <input id="id-input-login-username" type="text" placeholder="用户名" required/>
+                    </div>
+                    <div class="gua-input-wrapper">
+                        <input id="id-input-login-password" type="text" placeholder="密码" required/>
+                    </div>
+                </div>
+                <button id="id-button-login" class="gua-button-big" type="submit">进入</button>
+                <div class="gua-remember float-left">
+                    <!-- <label><input id="gua-id-remember" type="checkbox" name="remember" />记住我</label> -->
+                </div>
+            </div>
+            <button class="btn btn-default" id="id-button-testuser">
+                          <span class="glyphicon glyphicon-eye-open">
+                          </span>
+                访客直接登录
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<p id='id-p-info' class="p-center">
+</p>
+</body>
+</html>

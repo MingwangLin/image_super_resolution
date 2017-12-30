@@ -1,0 +1,15 @@
+
+.font-tweet-name {
+    font-weight: bold;
+    color: #292f33;
+}
+
+.font-tweet-time {
+    font-size: 0.8em;
+    color: #8899a6;
+}
+
+.font-bold {
+    color: #292f33;
+    font-weight: bold;
+}

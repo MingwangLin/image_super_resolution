@@ -4,6 +4,7 @@ import time
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+
 # 暴露 db 是因为 models 要使用它
 # 但是这时候还没有 app 所以要在 app 初始化之后再初始化这个 db
 db = SQLAlchemy()
@@ -13,10 +14,9 @@ db = SQLAlchemy()
 # 由外部启动函数来调用
 
 def init_app():
-    # db_path = '/Users/linmingwang/twitter/db.sqlite'
-    # db_path = '/var/www/twitter/db.sqlite'
-    db_path = '/home/lin/twitter.db.sqlite'
-
+    dir_name = os.path.dirname(os.getcwd())
+    db_name = 'db.sqlite'
+    db_path = os.path.join(dir_name, db_name)
     # 初始化并配置 flask
     app = Flask(__name__)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True

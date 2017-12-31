@@ -121,6 +121,7 @@ def upload_avatars():
     # uploaded 是上传时候的文件名
     file = request.files.get('uploaded')
     log('upload, ', request.files)
+    data = {}
     if file:
         filename = file.filename
         filename = secure_filename(file.filename)
@@ -152,20 +153,19 @@ def upload_picture():
     file = request.files.get('uploaded')
     log('upload, ', request.files)
     log('file', file.filename)
+    data = {}
     if file:
         img_format = file.filename.split('.')[1]
         filename = string_generator(size=8) + '.' + img_format
         log('filename, ', filename)
-        path = '/static/tweets_picture/' + filename
-        abs_path = '/home/lin/image_super_resolution/app' + path
-        # abs_path = '/var/www/twitter/app' + path
-        # abs_path = '/Users/linmingwang/twitter/app' + path
-        # abs_path = os.path.join(path, filename)
-        # log('abs', abs_path)
+        dir_name = os.path.dirname(os.getcwd())
+        img_path = '/static/tweets_picture/' + filename
+        abs_path = os.path.join(dir_name, img_path)
+        log('abs', abs_path)
         file.save(abs_path)
         process_img(abs_path)
         # file.save(path)
-        url = path
+        url = img_path
         data = {
             'success': True,
             'url': url,

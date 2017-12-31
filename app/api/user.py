@@ -155,11 +155,11 @@ def upload_picture():
     log('file', file.filename)
     data = {}
     if file:
-        log('..........file...........')
         img_format = file.filename.split('.')[1]
         filename = string_generator(size=8) + '.' + img_format
         log('filename, ', filename)
         dir_name = os.path.dirname(os.getcwd())
+        log ('dirname', dir_name)
         img_path = '/static/tweets_picture/' + filename
         abs_path = os.path.join(dir_name, img_path)
         log('abs', abs_path)

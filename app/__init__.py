@@ -3,6 +3,8 @@ from flask import Flask
 import time
 from flask_sqlalchemy import SQLAlchemy
 import os
+from .api.treelog import log
+
 
 
 # 暴露 db 是因为 models 要使用它
@@ -15,6 +17,7 @@ db = SQLAlchemy()
 
 def init_app():
     dir_name = os.path.dirname(os.getcwd())
+    log('db dir_name', dir_name)
     db_name = 'db.sqlite'
     db_path = os.path.join(dir_name, db_name)
     # 初始化并配置 flask

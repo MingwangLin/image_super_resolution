@@ -17,7 +17,7 @@ def process_img(img_path):
     model_hr.load_weights(weights_path)
     img_arr = model_hr.predict(img_arr)
     loog(img_arr, 'img_arr1')
-    img_arr = img_arr.astype('uint8')
+    img_arr = img_arr[0].astype('uint8')
     img = to_pil_image(img_arr)
     loog(img_arr, 'img_arr2')
     img.save(img_path, quality=95)

@@ -4,16 +4,17 @@ from .helper import *
 
 
 def process_img(img_path):
-    img = Image.open(img_path)
-    img = np.expand_dims(np.array(img), 0)
-    inp, outp = get_model(img)
+    img_arr = Image.open(img_path)
+    img_arr = np.expand_dims(np.array(img_arr), 0)
+    inp, outp = get_model(img_arr)
     print(inp, outp)
     model_hr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
-    weights_path = path + 'top_model_one_epoch.h5'
+    weights_name = 'top_model_one_epoch.h5'
+    weights_path = path + weights_name
     model_hr.load_weights(weights_path)
-    img = model_hr.predict(img)
-    img = to_pil_image(img)
+    img_arr = model_hr.predict(img_arr)
+    img = to_pil_image(img_arr)
     img.save(img_path, quality=95)
 
 

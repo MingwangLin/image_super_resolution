@@ -15,7 +15,7 @@ db = SQLAlchemy()
 # 由外部启动函数来调用
 
 def init_app():
-    dir_name = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    dir_name = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     print('db dir_name', dir_name)
     db_name = 'db.sqlite'
     db_path = os.path.join(dir_name, db_name)

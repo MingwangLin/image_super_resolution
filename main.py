@@ -1,6 +1,7 @@
 from app import init_app
 from app import models
 
+
 # ...
 
 def rebuild_db():
@@ -19,5 +20,5 @@ def run():
 
 
 if __name__ == '__main__':
-    rebuild_db()
+    # rebuild_db()
     run()

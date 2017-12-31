@@ -6,7 +6,6 @@ from .treelog import loog
 
 def process_img(img_path):
     img_arr = Image.open(img_path)
-    img_arr = img_arr.astype('uint8')
     # img_arr = Image.open(img_path).resize((288, 288))
     img_arr = np.expand_dims(np.array(img_arr), 0)
     inp, outp = get_model(img_arr)

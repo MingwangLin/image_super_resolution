@@ -161,7 +161,7 @@ def upload_picture():
         dir_name = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         log ('dirname', dir_name)
         img_path = '/static/tweets_picture/' + filename
-        abs_path = os.path.join(dir_name, img_path)
+        abs_path = dir_name + img_path
         log('abs', abs_path)
         file.save(abs_path)
         process_img(abs_path)

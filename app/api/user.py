@@ -155,6 +155,7 @@ def upload_picture():
     log('file', file.filename)
     data = {}
     if file:
+        log('..........file...........')
         img_format = file.filename.split('.')[1]
         filename = string_generator(size=8) + '.' + img_format
         log('filename, ', filename)

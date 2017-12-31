@@ -7,7 +7,7 @@ from flask import render_template
 from flask import request
 from flask import url_for
 
-from .treelog import log
+from .treelog import log, loog
 from .login import hash_password, fake_tweet, string_generator
 
 from ..models import At, Comment, User, Tweet, Follow
@@ -164,7 +164,9 @@ def upload_picture():
         abs_path = dir_name + img_path
         log('abs', abs_path)
         file.save(abs_path)
+        loog('start')
         process_img(abs_path)
+        loog('end')
         # file.save(path)
         url = img_path # for online apache
         url = abs_path # for local pc debug

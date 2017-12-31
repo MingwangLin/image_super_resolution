@@ -165,7 +165,8 @@ def upload_picture():
         file.save(abs_path)
         process_img(abs_path)
         # file.save(path)
-        url = img_path
+        url = img_path # for online apache
+        url = abs_path # for local pc debug
         data = {
             'success': True,
             'url': url,

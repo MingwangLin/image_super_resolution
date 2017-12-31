@@ -3,7 +3,6 @@ from flask import Flask
 import time
 from flask_sqlalchemy import SQLAlchemy
 import os
-from .api.treelog import log
 
 
 
@@ -17,7 +16,7 @@ db = SQLAlchemy()
 
 def init_app():
     dir_name = os.path.dirname(os.getcwd())
-    log('db dir_name', dir_name)
+    print('db dir_name', dir_name)
     db_name = 'db.sqlite'
     db_path = os.path.join(dir_name, db_name)
     # 初始化并配置 flask

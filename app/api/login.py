@@ -119,7 +119,7 @@ def signout():
 @api.route('/testuser', methods=['GET'])
 def fake_user():
     form = {
-        'username': '游客' + string_generator(size=4),
+        'username': 'visitor' + string_generator(size=4),
         'password': string_generator(size=6),
     }
     user = User(form)

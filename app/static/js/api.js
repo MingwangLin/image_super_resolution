@@ -67,15 +67,15 @@ var formatted_time = function (timestamp) {
     var now = Math.floor(now / 1000);
     var interval = now - timestamp;
     if (interval <= 0) {
-        var time = `现在`
+        var time = `now`
     } else if (interval < 60) {
-        var time = `${interval}秒前`
+        var time = `${interval}seconds ago`
     } else if (interval >= 60 && interval < 3600) {
-        var time = `${Math.floor(interval / 60)}分钟前`
+        var time = `${Math.floor(interval / 60)}minutes ago`
     } else if (interval >= 3600 && interval < 3600 * 24) {
-        var time = `${Math.floor(interval / 3600)}小时前`
+        var time = `${Math.floor(interval / 3600)}hours ago`
     } else if (interval >= 3600 * 24 && interval < 3600 * 24 * 7) {
-        var time = `${Math.floor(interval / (3600 * 24))}天前`
+        var time = `${Math.floor(interval / (3600 * 24))}days ago`
     } else {
         var year = a.getFullYear();
         var month = a.getMonth();

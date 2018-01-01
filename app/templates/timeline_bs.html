@@ -43,10 +43,10 @@
         <nav class="blog-nav">
             <a class="blog-nav-item glyphicon glyphicon-home" id="id-a-mypage"
                href="/timeline/{{visitor.username}}"></a>
-            <a class="blog-nav-item" id="id-a-mytweets" href="#">个人主页</a>
-            <a class="blog-nav-item" id="id-a-followedtweets" href="#">广场</a>
-            <a class="blog-nav-item" id="id-a-notifications" href="#">通知</a>
-            <a class="blog-nav-item" href="/signout">退出</a>
+            <a class="blog-nav-item" id="id-a-mytweets" href="#">Home</a>
+            <a class="blog-nav-item" id="id-a-followedtweets" href="#">Moments</a>
+            <a class="blog-nav-item" id="id-a-notifications" href="#">Notification</a>
+            <a class="blog-nav-item" href="/signout">Sign out</a>
         </nav>
     </div>
 </div>
@@ -65,16 +65,16 @@
                     <div id="id-div-inputarea" class="tweetbox clearfix">
                         {% if host is not none and host.username == visitor.username %}
                         <textarea name="content" id="id-text-content" class="form-control"
-                                  placeholder="说点什么"></textarea>
+                                  placeholder="tag the photo"></textarea>
                         <button class="btn btn-default pull-right" id="id-button-addtweet">
                     <span class="glyphicon glyphicon-send" aria-hidden="true">
                     </span>
-                            转高清
+                            convert
                         </button>
                         <button class="btn btn-default pull-left" id="id-button-addpicture">
                     <span class="glyphicon glyphicon-picture" aria-hidden="true">
                     </span>
-                            上传图片
+                            upload
                         </button>
                         {% endif %}
                         <div id="id-div-picturearea"></div>
@@ -123,12 +123,12 @@
                     </div>
                     <div class="media-body">
                         <span class="font-tweet-name">{{host.username}}</span> 
-                        </p>关注{{host.followed.count()}} 粉丝{{host.followers.count()}}</p>
+                        </p>Following{{host.followed.count()}} Followers{{host.followers.count()}}</p>
                         {% if host.username != visitor.username and not visitor.is_following(host) %}
-                        <a href="/follow/{{host.id}}">点击关注</a>
+                        <a href="/follow/{{host.id}}">Follow</a>
                         {% elif host.username != visitor.username and visitor.is_following(host) %}
                         <p>
-                            <a href="/unfollow/{{host.id}}">取消关注</a>
+                            <a href="/unfollow/{{host.id}}">Unfollow</a>
                         </p>
                         {% endif %} 
                         {% if host.username == visitor.username %}
@@ -142,10 +142,10 @@
 
             {% if host.username == visitor.username %}
             <div class="file-wrapper tweetbox" style="display: none;">
-                <p class="text-center font-bold">更换头像</p>
+                <p class="text-center font-bold">change profile photo</p>
                 <hr/>
                 <input id="id-input-file" type="file">
-                <button class="btn btn-default btn-xs" id="id-button-upload-avatar">提交</button>
+                <button class="btn btn-default btn-xs" id="id-button-upload-avatar">submit</button>
             </div>
             {% endif %}
         </div><!-- /.blog-sidebar -->

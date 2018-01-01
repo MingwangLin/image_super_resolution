@@ -137,7 +137,7 @@ def fake_user():
     session['user_id'] = user.id
     content = '@' + user.username + ' ' + 'test'
     fake_tweet(content, user_id=admin_id)
-    content = '测试'
+    content = 'test'
     user_id = user.id
     fake_tweet(content, user_id=user_id)
     created_user = {

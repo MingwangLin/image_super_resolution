@@ -124,11 +124,11 @@ var bindActions = function () {
                 $interect_area.find(".div-commentarea").slideToggle("slow");
             }
             $repost_area.hide();
-            $comment_button.text('收起');
-            $repost_button.text('转发');
+            $comment_button.text('Hide');
+            $repost_button.text('Retweet');
         } else {
             $interect_area.find(".div-commentarea").slideToggle("slow");
-            $comment_button.text('评论' + $comments.length);
+            $comment_button.text('Reply' + $comments.length);
         }
     });
 
@@ -143,11 +143,11 @@ var bindActions = function () {
         if ($repost_area.is(':hidden')) {
             $repost_area.slideToggle("slow");
             $comment_area.hide();
-            $repost_button.text('收起');
-            $comment_button.text('评论' + $comments.length);
+            $repost_button.text('Hide');
+            $comment_button.text('Reply' + $comments.length);
         } else {
             $repost_area.slideToggle("slow");
-            $repost_button.text('转发');
+            $repost_button.text('Retweet');
         }
     });
 

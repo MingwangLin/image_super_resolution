@@ -26,12 +26,12 @@ var tweet_template = function (avatar_path, tweet, comments_length) {
                       <button type="button" class="btn btn-default btn-sm button-comments">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                         </span>
-                        <span class="comment-button-text">评论${comments_length}</span>
+                        <span class="comment-button-text">Reply{comments_length}</span>
                       </button>
                       <button type="button" class="btn btn-default btn-sm button-reposts">
                         <span class="glyphicon glyphicon-share" aria-hidden="true">
                         </span>
-                        <span class="repost-button-text">转发</span>
+                        <span class="repost-button-text">Retweet</span>
                       </button>
                       </div>
                       <div class="clearfix div-repostarea" style="display: none">
@@ -80,12 +80,12 @@ var reposted_tweet_template = function (tweet) {
                         <button type="button" class="btn btn-default btn-xs button-comments">
                           <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                           </span>
-                          <span class="comment-button-text">评论${comments_length}</span>
+                          <span class="comment-button-text">Reply${comments_length}</span>
                         </button>
                         <button type="button" class="btn btn-default btn-xs button-reposts">
                           <span class="glyphicon glyphicon-share" aria-hidden="true">
                           </span>
-                          <span class="repost-button-text">转发</span>
+                          <span class="repost-button-text">Retweet</span>
                         </button>
                       </div>
                       <div class="clearfix div-repostarea" style="display: none">
@@ -135,7 +135,7 @@ var imgs_thumnail_template = function (tweet) {
 };
 
 var notification_template = function (notification, avatar_path, tweet, comments_length) {
-    var words = '在微博@了你'
+    var words = 'new@'
     var template = `
     <div class="tweetbox clearfix">
      <span class="font-bold">
@@ -150,7 +150,7 @@ var notification_template = function (notification, avatar_path, tweet, comments
 
 var none_template = `<div class="none tweetbox">
                       <p class="text-center ">
-                        你还未发表任何微博
+                        no content yet
                       </p>
                     </div>
                     `
@@ -158,7 +158,7 @@ var none_template = `<div class="none tweetbox">
 var nomore_template = `<p class="nomore text-center">
                     <span class="glyphicon glyphicon-info-sign">
                     </span>
-                    没有更多了
+                    nothing more
                     </p>
                     `
 var addcomment_textarea_template = `
@@ -169,7 +169,7 @@ var addcomment_textarea_template = `
                       <button class="btn btn-default pull-right button-addcomment" type="button">
                       <span class="glyphicon glyphicon-send" aria-hidden="true">
                       </span>
-                      发表评论
+                      Reply
                       </button>
                       </span>
                       </div>
@@ -183,7 +183,7 @@ var addrepost_textarea_template = `
                       <button class="btn btn-default pull-right button-addrepost" type="button">
                       <span class="glyphicon glyphicon-share" aria-hidden="true">
                       </span>
-                      转发
+                      Retweet
                       </button>
                       </span>
                       </div>

@@ -123,7 +123,7 @@
                     </div>
                     <div class="media-body">
                         <span class="font-tweet-name">{{host.username}}</span> 
-                        </p>Following{{host.followed.count()}} Followers{{host.followers.count()}}</p>
+                        </p>Following {{host.followed.count()}} Followers {{host.followers.count()}}</p>
                         {% if host.username != visitor.username and not visitor.is_following(host) %}
                         <a href="/follow/{{host.id}}">Follow</a>
                         {% elif host.username != visitor.username and visitor.is_following(host) %}

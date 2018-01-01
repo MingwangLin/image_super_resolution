@@ -164,7 +164,7 @@ var nomore_template = `<p class="nomore text-center">
 var addcomment_textarea_template = `
                       <hr />
                       <div class="input-group">
-                      <input type="text" class="form-control text-addcomment" name="content" placeholder="评论点什么">
+                      <input type="text" class="form-control text-addcomment" name="content" placeholder="Add a comment...">
                       <span class="input-group-btn">
                       <button class="btn btn-default pull-right button-addcomment" type="button">
                       <span class="glyphicon glyphicon-send" aria-hidden="true">
@@ -178,7 +178,7 @@ var addcomment_textarea_template = `
 var addrepost_textarea_template = `
                       <hr />
                       <div class="input-group">
-                      <input type="text" class="form-control text-addrepost" name="content" placeholder="说点什么">
+                      <input type="text" class="form-control text-addrepost" name="content" placeholder="Add a comment...">
                       <span class="input-group-btn">
                       <button class="btn btn-default pull-right button-addrepost" type="button">
                       <span class="glyphicon glyphicon-share" aria-hidden="true">

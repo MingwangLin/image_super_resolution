@@ -20,18 +20,24 @@ from tensorflow.python.framework import ops
 #from tensorflow.contrib import rnn, legacy_seq2seq as seq2seq
 
 from keras_tqdm import TQDMNotebookCallback
-from keras import initializations
+from keras import initializers
 from keras.applications.resnet50 import ResNet50, decode_predictions, conv_block, identity_block
 from keras.applications.vgg16 import VGG16
 from keras.preprocessing import image
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Model, Sequential
 from keras.layers import *
+from keras.layers import add
+
 from keras.optimizers import Adam
 from keras.regularizers import l2
 from keras.utils.data_utils import get_file
 from keras.applications.imagenet_utils import decode_predictions, preprocess_input
 
+from keras_contrib.layers.normalization import InstanceNormalization
+
+
+from vgg16_avg import VGG16_Avg
 
 np.set_printoptions(threshold=50, edgeitems=20)
 def beep(): return Audio(filename='/home/jhoward/beep.mp3', autoplay=True)

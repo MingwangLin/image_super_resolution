@@ -22,31 +22,31 @@ def process_img(img_path):
 
 
 
-def conv_block(x, filters, size, stride=(2, 2), mode='same', act=True):
-    x = Convolution2D(filters, size, size, subsample=stride, border_mode=mode)(x)
-    x = BatchNormalization(mode=2)(x)
+def conv_block(x, filters, size, stride=(2,2), mode='same', act=True):
+    x = Conv2D(filters, (size, size), strides=stride, padding=mode)(x)
+    x = InstanceNormalization(axis=3)(x)
     return Activation('relu')(x) if act else x
 
 
 def res_block(ip, nf=64):
-    x = conv_block(ip, nf, 3, (1, 1))
-    x = conv_block(x, nf, 3, (1, 1), act=False)
-    return merge([x, ip], mode='sum')
+    x = conv_block(ip, nf, 3, (1,1))
+    x = conv_block(x, nf, 3, (1,1), act=False)
+    return add([x, ip])
 
 
 def up_block(x, filters, size):
     x = keras.layers.UpSampling2D()(x)
-    x = Convolution2D(filters, size, size, border_mode='same')(x)
-    x = BatchNormalization(mode=2)(x)
+    x = Conv2D(filters, (size, size), strides=(1, 1), padding='same')(x)
+    x = InstanceNormalization(axis=3)(x)
     return Activation('relu')(x)
 
 
 def get_model(arr):
-    inp = Input(arr.shape[1:])
-    x = conv_block(inp, 64, 9, (1, 1))
-    for i in range(4): x = res_block(x)
-    x = up_block(x, 64, 3)
-    x = up_block(x, 64, 3)
-    x = Convolution2D(3, 9, 9, activation='tanh', border_mode='same')(x)
-    outp = Lambda(lambda x: (x + 1) * 127.5)(x)
-    return inp, outp
+    inp=Input(arr.shape[1:])
+    x=conv_block(inp, 64, 9, (1,1))
+    for i in range(4): x=res_block(x)
+    x=up_block(x, 64, 3)
+    x=up_block(x, 64, 3)
+    x=Conv2D(3, (9, 9), activation='tanh', strides=(1, 1), padding='same')(x)
+    outp=Lambda(lambda x: (x+1)*127.5)(x)
+    return inp,outp

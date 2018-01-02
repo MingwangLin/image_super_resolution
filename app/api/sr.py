@@ -12,7 +12,7 @@ def process_img(img_path):
     img = Image.open(img_path)
     print (np.array(img).shape, '-----------------np.array(img).shape-------------------')
     maxsize = (512, 512)
-    img = img.thumbnail(maxsize, PIL.Image.ANTIALIAS)
+    img.thumbnail(maxsize, PIL.Image.ANTIALIAS)
     img_arr = np.expand_dims(np.array(img), 0)
     print (img_arr.shape, '-----------------img_arr.shape-------------------')
     inp, outp = get_model(img_arr)

@@ -10,10 +10,11 @@ def process_img(img_path):
     config.gpu_options.per_process_gpu_memory_fraction = 0.9
     session = tf.Session(config=config)
     img = Image.open(img_path)
+    print (np.array(img).shape, '-----------------np.array(img).shape-------------------')
     maxsize = (512, 512)
     img = img.thumbnail(maxsize, PIL.Image.ANTIALIAS)
     img_arr = np.expand_dims(np.array(img), 0)
-    print (img_arr.shape, '-------img_arr.shape---------')
+    print (img_arr.shape, '-----------------img_arr.shape-------------------')
     inp, outp = get_model(img_arr)
     loog(inp, outp)
     model_sr = Model(inp, outp)

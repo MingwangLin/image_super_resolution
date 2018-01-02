@@ -24,12 +24,12 @@ var tweet_template = function (avatar_path, tweet, comments_length) {
                     <div class="div-interact-area">
                       <div class="btn-group bottom-right " role="group" aria-label="...">
                       <button type="button" class="btn btn-default btn-sm button-comments">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true">
                         </span>
-                        <span class="comment-button-text">Reply{comments_length}</span>
+                        <span class="comment-button-text">Reply {comments_length}</span>
                       </button>
                       <button type="button" class="btn btn-default btn-sm button-reposts">
-                        <span class="glyphicon glyphicon-share" aria-hidden="true">
+                        <span class="glyphicon glyphicon-retweet" aria-hidden="true">
                         </span>
                         <span class="repost-button-text">Retweet</span>
                       </button>
@@ -78,12 +78,12 @@ var reposted_tweet_template = function (tweet) {
                     <div class="div-interact-area">
                       <div class="btn-group bottom-right" role="group" aria-label="...">
                         <button type="button" class="btn btn-default btn-xs button-comments">
-                          <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                          <span class="glyphicon glyphicon-comment" aria-hidden="true">
                           </span>
-                          <span class="comment-button-text">Reply${comments_length}</span>
+                          <span class="comment-button-text">Reply ${comments_length}</span>
                         </button>
                         <button type="button" class="btn btn-default btn-xs button-reposts">
-                          <span class="glyphicon glyphicon-share" aria-hidden="true">
+                          <span class="glyphicon glyphicon-retweet" aria-hidden="true">
                           </span>
                           <span class="repost-button-text">Retweet</span>
                         </button>
@@ -181,7 +181,7 @@ var addrepost_textarea_template = `
                       <input type="text" class="form-control text-addrepost" name="content" placeholder="Add a comment...">
                       <span class="input-group-btn">
                       <button class="btn btn-default pull-right button-addrepost" type="button">
-                      <span class="glyphicon glyphicon-share" aria-hidden="true">
+                      <span class="glyphicon glyphicon-send" aria-hidden="true">
                       </span>
                       Retweet
                       </button>

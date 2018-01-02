@@ -5,9 +5,9 @@ from .treelog import loog
 
 
 def process_img(img_path):
-    K.get_session().close()
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
+    config.gpu_options.per_process_gpu_memory_fraction = 0.9
     session = tf.Session(config=config)
     img_arr = Image.open(img_path)
     # img_arr = Image.open(img_path).resize((288, 288))

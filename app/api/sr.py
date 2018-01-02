@@ -7,7 +7,7 @@ from .treelog import loog
 def process_img(img_path):
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
-    config.gpu_options.per_process_gpu_memory_fraction = 0.9
+    config.gpu_options.per_process_gpu_memory_fraction = 0.8
     session = tf.Session(config=config)
     img = Image.open(img_path)
     # maxsize = (512, 512)

@@ -12,7 +12,7 @@ def process_img(img_path):
     print(inp, outp)
     model_hr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
-    weights_name = 'top_model_in_51000_test.h5'
+    weights_name = 'top_model_in_5100_test.h5'
     weights_path = path + weights_name
     model_hr.load_weights(weights_path)
     img_arr = model_hr.predict(img_arr)

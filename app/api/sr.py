@@ -5,7 +5,6 @@ from .treelog import loog
 
 
 def process_img(img_path):
-    limit_mem()
     img_arr = Image.open(img_path)
     # img_arr = Image.open(img_path).resize((288, 288))
     img_arr = np.expand_dims(np.array(img_arr), 0)
@@ -13,7 +12,7 @@ def process_img(img_path):
     print(inp, outp)
     model_hr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
-    weights_name = 'top_model_in_10110_test.h5'
+    weights_name = 'top_model_in_51000_test.h5'
     weights_path = path + weights_name
     model_hr.load_weights(weights_path)
     img_arr = model_hr.predict(img_arr)
@@ -25,7 +24,7 @@ def process_img(img_path):
 
 def conv_block(x, filters, size, stride=(2,2), mode='same', act=True):
     x = Conv2D(filters, (size, size), strides=stride, padding=mode)(x)
-    x = InstanceNormalization()(x)
+    x = InstanceNormalization(axis=3)(x)
     return Activation('relu')(x) if act else x
 
 
@@ -38,7 +37,7 @@ def res_block(ip, nf=64):
 def up_block(x, filters, size):
     x = keras.layers.UpSampling2D()(x)
     x = Conv2D(filters, (size, size), strides=(1, 1), padding='same')(x)
-    x = InstanceNormalization()(x)
+    x = InstanceNormalization(axis=3)(x)
     return Activation('relu')(x)
 
 

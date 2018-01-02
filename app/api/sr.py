@@ -1,3 +1,8 @@
+from keras import backend as K
+cfg = K.tf.ConfigProto()
+cfg.gpu_options.allow_growth = True
+K.set_session(K.tf.Session(config=cfg))
+
 import importlib
 from .utils2 import *
 from .helper import *
@@ -12,7 +17,7 @@ def process_img(img_path):
     print(inp, outp)
     model_hr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
-    weights_name = 'top_model_in_15110_test.h5'
+    weights_name = 'top_model_in_6100_test_lr-4_1000.h5'
     weights_path = path + weights_name
     model_hr.load_weights(weights_path)
     img_arr = model_hr.predict(img_arr)

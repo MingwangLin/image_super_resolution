@@ -1,8 +1,3 @@
-from keras import backend as K
-cfg = K.tf.ConfigProto()
-cfg.gpu_options.allow_growth = True
-K.set_session(K.tf.Session(config=cfg))
-
 import importlib
 from .utils2 import *
 from .helper import *
@@ -14,28 +9,27 @@ def process_img(img_path):
     # img_arr = Image.open(img_path).resize((288, 288))
     img_arr = np.expand_dims(np.array(img_arr), 0)
     inp, outp = get_model(img_arr)
-    print(inp, outp)
-    model_hr = Model(inp, outp)
+    loog(inp, outp)
+    model_sr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
     weights_name = 'top_model_in_6100_test_lr-4_1000.h5'
     weights_path = path + weights_name
-    model_hr.load_weights(weights_path)
-    img_arr = model_hr.predict(img_arr)
+    model_sr.load_weights(weights_path)
+    img_arr = model_sr.predict(img_arr)
     img_arr = img_arr[0].astype('uint8')
     img = to_pil_image(img_arr)
     img.save(img_path, quality=95)
 
 
-
-def conv_block(x, filters, size, stride=(2,2), mode='same', act=True):
+def conv_block(x, filters, size, stride=(2, 2), mode='same', act=True):
     x = Conv2D(filters, (size, size), strides=stride, padding=mode)(x)
     x = InstanceNormalization(axis=3)(x)
     return Activation('relu')(x) if act else x
 
 
 def res_block(ip, nf=64):
-    x = conv_block(ip, nf, 3, (1,1))
-    x = conv_block(x, nf, 3, (1,1), act=False)
+    x = conv_block(ip, nf, 3, (1, 1))
+    x = conv_block(x, nf, 3, (1, 1), act=False)
     return add([x, ip])
 
 
@@ -47,11 +41,11 @@ def up_block(x, filters, size):
 
 
 def get_model(arr):
-    inp=Input(arr.shape[1:])
-    x=conv_block(inp, 64, 9, (1,1))
-    for i in range(4): x=res_block(x)
-    x=up_block(x, 64, 3)
-    x=up_block(x, 64, 3)
-    x=Conv2D(3, (9, 9), activation='tanh', strides=(1, 1), padding='same')(x)
-    outp=Lambda(lambda x: (x+1)*127.5)(x)
-    return inp,outp
+    inp = Input(arr.shape[1:])
+    x = conv_block(inp, 64, 9, (1, 1))
+    for i in range(4): x = res_block(x)
+    x = up_block(x, 64, 3)
+    x = up_block(x, 64, 3)
+    x = Conv2D(3, (9, 9), activation='tanh', strides=(1, 1), padding='same')(x)
+    outp = Lambda(lambda x: (x + 1) * 127.5)(x)
+    return inp, outp

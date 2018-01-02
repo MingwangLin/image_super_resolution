@@ -5,6 +5,7 @@ from .treelog import loog
 
 
 def process_img(img_path):
+    K.get_session().close()
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
     session = tf.Session(config=config)

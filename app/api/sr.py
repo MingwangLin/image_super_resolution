@@ -8,7 +8,7 @@ def process_img(img_path):
     K.get_session().close()
     cfg = K.tf.ConfigProto()
     cfg.gpu_options.allow_growth = True
-    config.gpu_options.per_process_gpu_memory_fraction = 0.5
+    cfg.gpu_options.per_process_gpu_memory_fraction = 0.5
     K.set_session(K.tf.Session(config=cfg))
     img = Image.open(img_path)
     maxsize = (670, 670)

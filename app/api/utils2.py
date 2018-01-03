@@ -40,7 +40,6 @@ from keras_contrib.layers.normalization import InstanceNormalization
 
 
 from vgg16_avg import VGG16_Avg
-limit_mem()
 
 
 np.set_printoptions(threshold=50, edgeitems=20)

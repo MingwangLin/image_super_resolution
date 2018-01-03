@@ -10,7 +10,7 @@ def process_img(img_path):
     # cfg.gpu_options.allow_growth = True
     # cfg.gpu_options.per_process_gpu_memory_fraction = 0.5
     # K.set_session(K.tf.Session(config=cfg))
-    limit_mem()
+    # limit_mem()
     img = Image.open(img_path)
     maxsize = (670, 670)
     img.thumbnail(maxsize, PIL.Image.ANTIALIAS)

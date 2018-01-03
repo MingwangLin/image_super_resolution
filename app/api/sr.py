@@ -5,10 +5,10 @@ from .treelog import loog
 
 
 def process_img(img_path):
-    K.get_session().close()
-    cfg = K.tf.ConfigProto()
-    cfg.gpu_options.allow_growth = True
-    K.set_session(K.tf.Session(config=cfg))
+    # K.get_session().close()
+    # cfg = K.tf.ConfigProto()
+    # cfg.gpu_options.allow_growth = True
+    # K.set_session(K.tf.Session(config=cfg))
     # config.gpu_options.per_process_gpu_memory_fraction = 0.8
     img = Image.open(img_path)
     maxsize = (670, 670)

@@ -19,10 +19,13 @@ def process_img(img_path):
     loog(inp, outp)
     model_sr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
-    weights_name = 'top_model_in2_40000.h5'
+    weights_name = 'top_model_in2_15000.h5'
+    # weights_name = 'top_model_in2_7000.h5'
     # weights_name = 'top_model_in_7100_lr-4_2000.h5'
     # weights_name = 'top_model_in_5100.h5'
     # weights_name = 'top_model_one_epoch.h5'
+    # weights_name = 'top_model_two_epoch.h5'
+    # weights_name = 'top_model_half_epoch.h5'
     weights_path = path + weights_name
     model_sr.load_weights(weights_path)
     img_arr = model_sr.predict(img_arr)

@@ -1,3 +1,4 @@
+
 import math, keras, datetime, pandas as pd, numpy as np, keras.backend as K, threading, json, re, collections
 import tarfile, tensorflow as tf, matplotlib.pyplot as plt, xgboost, operator, random, pickle, glob, os, bcolz
 import shutil, sklearn, functools, itertools, scipy
@@ -39,6 +40,8 @@ from keras_contrib.layers.normalization import InstanceNormalization
 
 
 from vgg16_avg import VGG16_Avg
+limit_mem()
+
 
 np.set_printoptions(threshold=50, edgeitems=20)
 def beep(): return Audio(filename='/home/jhoward/beep.mp3', autoplay=True)

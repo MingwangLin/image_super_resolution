@@ -31,7 +31,7 @@ def process_img(img_path):
 
 def conv_block(x, filters, size, stride=(2, 2), mode='same', act=True):
     x = Conv2D(filters, (size, size), strides=stride, padding=mode)(x)
-    x = InstanceNormalization((x)
+    x = InstanceNormalization()(x)
     return Activation('relu')(x) if act else x
 
 

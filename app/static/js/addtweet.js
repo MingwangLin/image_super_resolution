@@ -2,10 +2,10 @@ var add_newtweet = function () {
     var content = $('#id-text-content').val();
     var $imgs = $('#id-div-picturearea').find("img");
     log('i', $imgs)
-    var imgs_length = $imgs.length;
+    var img_counts = $imgs.length;
     var imgs_url = [];
-    if (imgs_length != 0) {
-        for (var i = 0; i < imgs_length; i++) {
+    if (img_counts != 0) {
+        for (var i = 0; i < img_counts; i++) {
             var img_url = $($imgs[i]).attr("src");
             imgs_url.push(img_url);
         }

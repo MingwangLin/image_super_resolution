@@ -113,7 +113,7 @@ def timeline_followed(username):
         }
         return jsonify(tweets_perpage)
 
-# 用ajax上传用户头像
+# 用ajax上传头像
 @api.route('/upload/avatars', methods=['POST'])
 @requires_login
 def upload_avatars():
@@ -145,7 +145,7 @@ def upload_avatars():
         data['success'] = False
     return jsonify(data)
 
-# 用ajax上传微博图片
+# 用ajax上传图片
 @api.route('/upload/picture', methods=['POST'])
 @requires_login
 def upload_picture():

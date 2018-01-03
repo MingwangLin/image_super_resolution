@@ -31,7 +31,7 @@ def process_img(img_path):
 
 def conv_block(x, filters, size, stride=(2, 2), mode='same', act=True):
     x = Conv2D(filters, (size, size), strides=stride, padding=mode)(x)
-    x = InstanceNormalization(axis=3)(x)
+    x = InstanceNormalization((x)
     return Activation('relu')(x) if act else x
 
 
@@ -44,7 +44,7 @@ def res_block(ip, nf=64):
 def up_block(x, filters, size):
     x = keras.layers.UpSampling2D()(x)
     x = Conv2D(filters, (size, size), strides=(1, 1), padding='same')(x)
-    x = InstanceNormalization(axis=3)(x)
+    x = InstanceNormalization()(x)
     return Activation('relu')(x)
 
 

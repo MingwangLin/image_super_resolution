@@ -6,10 +6,10 @@ from .treelog import loog
 
 def process_img(img_path):
     # K.get_session().close()
-    cfg = K.tf.ConfigProto()
-    cfg.gpu_options.allow_growth = True
-    cfg.gpu_options.per_process_gpu_memory_fraction = 0.2
-    K.set_session(K.tf.Session(config=cfg))
+    # cfg = K.tf.ConfigProto()
+    # cfg.gpu_options.allow_growth = True
+    # cfg.gpu_options.per_process_gpu_memory_fraction = 0.2
+    # K.set_session(K.tf.Session(config=cfg))
     # limit_mem()
     img = Image.open(img_path)
     maxsize = (670, 670)
@@ -19,7 +19,7 @@ def process_img(img_path):
     loog(inp, outp)
     model_sr = Model(inp, outp)
     path = '/home/lin/Downloads/imagenet/'
-    weights_name = 'top_model_in2_17000.h5'
+    weights_name = 'top_model_in2_60000.h5'
     # weights_name = 'top_model_in2_7000.h5'
     # weights_name = 'top_model_in_7100_lr-4_2000.h5'
     # weights_name = 'top_model_in_5100.h5'

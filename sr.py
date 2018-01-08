@@ -1,9 +1,9 @@
 import importlib
 
-from app.api import utils2
+from app.cnn import utils
 
-importlib.reload(utils2)
-from app.api.utils2 import *
+importlib.reload(utils)
+from app.cnn.utils import *
 from bcolz_array_iterator import BcolzArrayIterator
 
 path = '/media/lin/4C3F9729770D0D36/imagenet/'

@@ -23,7 +23,7 @@ def init_app():
     # 初始化并配置 flask
     app = Flask(__name__)
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-    app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
+    app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
     app.secret_key = 'TODO fixme'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(db_path)
     # 初始化 db

@@ -1,6 +1,5 @@
 from flask import abort
 from flask import jsonify
-from flask import session
 
 from flask import redirect
 from flask import render_template
@@ -8,14 +7,13 @@ from flask import request
 from flask import url_for
 
 from .treelog import log, loog
-from .login import hash_password, fake_tweet, string_generator
+from .login import string_generator
 
-from ..models import At, Comment, User, Tweet, Follow
+from ..models import User, Tweet, Follow
 from . import api
 from .decorator import requires_login, requires_admin, current_user
 
-from .notification import save_notification, user_notified
-from .sr import process_img
+from app.cnn.sr import process_img
 from werkzeug.utils import secure_filename
 import os
 
@@ -156,16 +154,17 @@ def upload_picture():
     data = {}
     if file:
         img_format = file.filename.split('.')[1]
-        filename = string_generator(size=8) + '.' + img_format
+        weight_name = 'top_model_140000'
+        filename = weight_name + '_' + string_generator(size=8) + '.' + img_format
         log('filename, ', filename)
         dir_name = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        log ('dirname', dir_name)
+        log('dirname', dir_name)
         img_path = '/static/tweets_picture/' + filename
         abs_path = dir_name + img_path
         log('abs', abs_path)
         file.save(abs_path)
         loog('start')
-        process_img(abs_path)
+        process_img(abs_path, weight_name, input_maxsize=960)
         loog('end')
         # file.save(path)
         url = img_path # for online apache
